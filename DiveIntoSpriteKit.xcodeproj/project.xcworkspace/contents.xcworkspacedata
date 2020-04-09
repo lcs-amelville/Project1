@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:DiveIntoSpriteKit.xcodeproj">
+      location = "group:../Bubbles.sks">
+   </FileRef>
+   <FileRef
+      location = "group:../Assets.xcassets">
+   </FileRef>
+   <FileRef
+      location = "group:player-submarine@2x.png">
+   </FileRef>
+   <FileRef
+      location = "group:water@2x.jpg">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

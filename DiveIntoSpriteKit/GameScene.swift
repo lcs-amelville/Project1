@@ -8,10 +8,25 @@
 
 import SpriteKit
 
+
+let player = SKSpriteNode(imageNamed: "player-submarine.png")
+
 @objcMembers
 class GameScene: SKScene {
     override func didMove(to view: SKView) {
         // this method is called when your game scene is ready to run
+        let background = SKSpriteNode(imageNamed: "water.jpg")
+        background.zPosition = -1
+        addChild(background)
+        
+        if let particles = SKEmitterNode(fileNamed: "Bubbles") {
+            particles.position.x = 512
+          particles.advanceSimulationTime(10)
+            addChild(particles)
+        }
+        player.position.x = -400
+        player.zPosition = 1
+        addChild(player)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
