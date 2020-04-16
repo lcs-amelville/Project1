@@ -9,10 +9,13 @@
 import SpriteKit
 
 
-let player = SKSpriteNode(imageNamed: "player-submarine.png")
 
 @objcMembers
 class GameScene: SKScene {
+    
+    let player = SKSpriteNode(imageNamed: "player-submarine.png")
+
+    
     override func didMove(to view: SKView) {
         // this method is called when your game scene is ready to run
         let background = SKSpriteNode(imageNamed: "water.jpg")
