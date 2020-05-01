@@ -51,10 +51,14 @@ var touchingPlayer = false
         guard touchingPlayer else { return }
         
         guard let touch = touches.first else { return }
+        
+        let location = touch.location(in: self)
+        player.position = location
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         // this method is called when the user stops touching the screen
+        touchingPlayer = false
     }
 
     override func update(_ currentTime: TimeInterval) {
