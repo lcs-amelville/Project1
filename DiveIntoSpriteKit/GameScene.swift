@@ -15,7 +15,7 @@ class GameScene: SKScene {
     
     let player = SKSpriteNode(imageNamed: "player-submarine.png")
     var touchingPlayer = false
-    var gameTimer = Timer?
+    //var gameTimer = Timer?
     
     override func didMove(to view: SKView) {
         // this method is called when your game scene is ready to run
@@ -66,13 +66,23 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // this method is called before each frame is rendered
     }
+    
+    func createEnemy () {
+        //Code Goes Here
+        //add enemey
+        let sprite = SKSpriteNode (imageNamed: "fish")
+        sprite.position = CGPoint (x: 1200, y:Int.random(in: -350...350))
+        sprite.name = "enemy"
+        sprite.zPosition = 1
+        addChild(sprite)
+        // Add physics
+        sprite.physicsBody = SKPhysicsBody(texture: sprite.texture!, size: sprite.size)
+        // Move enemy
+        sprite.physicsBody?.velocity = CGVector(dx: -500, dy: 0)
+        sprite.physicsBody?.linearDamping = 0
+        
+        
+    }
 }
 
-func createEnemy () {
-    //Code Goes Here
-    let sprite = SKSpriteNode (imageNamed: "fish")
-    sprite.position = CGPoint (x: 1200, y:Int.random(in: -350...350))
-    sprite.name = "enemy"
-    sprite.zPosition = 1
-    addChild(sprite)
-}
+
