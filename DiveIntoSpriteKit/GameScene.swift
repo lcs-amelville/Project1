@@ -14,7 +14,8 @@ import SpriteKit
 class GameScene: SKScene {
     
     let player = SKSpriteNode(imageNamed: "player-submarine.png")
-
+var touchingPlayer = false
+    
     
     override func didMove(to view: SKView) {
         // this method is called when your game scene is ready to run
@@ -34,6 +35,22 @@ class GameScene: SKScene {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // this method is called when the user touches the screen
+        //1.
+        guard let touch = touches.first else { return }
+        //2.
+        let location = touch.location (in: self)
+        //3.
+        let tappedNodes = nodes(at: location)
+        //4.
+        if tappedNodes.contains(player){
+            touchingPlayer = true
+        }
+    }
+    // TouchesMoved
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard touchingPlayer else { return }
+        
+        guard let touch = touches.first else { return }
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
