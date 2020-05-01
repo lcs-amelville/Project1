@@ -15,7 +15,7 @@ class GameScene: SKScene {
     
     let player = SKSpriteNode(imageNamed: "player-submarine.png")
     var touchingPlayer = false
-    //var gameTimer = Timer?
+          var gameTimer: Timer?
     
     override func didMove(to view: SKView) {
         // this method is called when your game scene is ready to run
@@ -32,6 +32,8 @@ class GameScene: SKScene {
         player.zPosition = 1
         addChild(player)
         
+  
+        gameTimer.Timer.schedulaedTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
         
     }
     
